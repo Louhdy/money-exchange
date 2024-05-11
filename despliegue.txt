@@ -12,6 +12,11 @@ Creación de una aplicación en Elastic Beanstalk:
 - Configurar las opciones del entorno, como el nombre del entorno, la descripción y la configuración de la capacidad, según las necesidades de uso de la aplicación.
 - Elastic Beanstalk detectará automáticamente que se está utilizando Docker Compose y utilizará la configuración proporcionada en el docker-compose.yml para desplegar y ejecutar la aplicación.
 
+Configuración de variables de entorno en Elastic Beanstalk:
+
+- En la consola de Elastic Beanstalk, configura las variables de entorno necesarias para el entorno de despliegue.
+- Añadir una variable de entorno para la cadena de conexión de la base de datos MongoDB, utilizando el string de conexión válido que se tiene.
+
 Despliegue y ejecución de la aplicación:
 
 - Una vez que se hayan configurado todas las opciones, hacer clic en "Crear entorno" para iniciar el proceso de despliegue.
