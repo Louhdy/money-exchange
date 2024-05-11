@@ -1,0 +1,22 @@
+Configuración de la cuenta de AWS:
+
+- Acceder a la consola de AWS y crear una cuenta en caso de no contar con una.
+- Configurar las credenciales de acceso y asegurarse de tener los permisos necesarios para crear y gestionar servicios en la nube.
+
+Creación de una aplicación en Elastic Beanstalk:
+
+- Acceder al panel de Elastic Beanstalk en la consola de AWS y seleccionar la opción "Crear nueva aplicación".
+- Completar los detalles requeridos, como el nombre de la aplicación y la descripción.
+- Elegir el tipo de plataforma Docker.
+- Cuando se solicite, subir el código fuente desde GitHub.
+- Configurar las opciones del entorno, como el nombre del entorno, la descripción y la configuración de la capacidad, según las necesidades de uso de la aplicación.
+- Elastic Beanstalk detectará automáticamente que se está utilizando Docker Compose y utilizará la configuración proporcionada en el docker-compose.yml para desplegar y ejecutar la aplicación.
+
+Despliegue y ejecución de la aplicación:
+
+- Una vez que se hayan configurado todas las opciones, hacer clic en "Crear entorno" para iniciar el proceso de despliegue.
+- Elastic Beanstalk comenzará a crear el entorno y desplegará automáticamente la aplicación utilizando la configuración proporcionada en el docker-compose.yml.
+
+
+
+
