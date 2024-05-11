@@ -24,3 +24,60 @@ Docker and Docker Compose installed on your system.
 
 The application was implemented using Swagger for the API documentation. 
 - You can check it at `http://localhost:4000/api-docs`.
+
+- **URL Login**: http://localhost:4000/api/auth/login
+- **POST**
+```
+{
+    "password": "prestamype",
+    "email": "melgomez.gar@gmail.com"
+}
+```
+
+#### New user
+
+To log in and obtain an authentication token, make a POST request to the following URL:
+
+- **URL**: http://localhost:4000/api/users
+- **Body**
+- **POST**
+```
+{
+    "password": "prestamype",
+    "email": "melgomez.gar@gmail.com"
+}
+```
+
+#### New Exchange
+
+To create Request, make a POST request to the following URL:
+
+- **URL**: http://localhost:4000/api/exchange
+- **Body**
+- **POST**
+```
+{
+    "tipo_de_cambio": "venta",
+    "monto_enviar": 90
+}
+```
+#### Get Exchanges
+
+To list my Requests, make a GET request to the following URL:
+
+- **URL**: http://localhost:4000/api/exchange
+- **GET**
+
+#### Get an Exchange
+
+To see the details of one Request, make a GET request to the following URL:
+
+- **URL**: http://localhost:4000/api/exchange/:id
+- **GET**
+
+#### Delete Exchange
+
+To delete Request, make a Delete request to the following URL:
+
+- **URL**: http://localhost:4000/api/exchange/:id
+- **Delete**
