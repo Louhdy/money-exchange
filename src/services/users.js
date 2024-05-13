@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { UserModule } = require("../models");
 const bcryptjs = require("bcryptjs");
 
 class UserService {
@@ -6,7 +6,7 @@ class UserService {
 
   async create({ email, password }) {
     // Create a new user instance
-    const newUser = new User({ email, password });
+    const newUser = new UserModule({ email, password });
 
     // Generate a salt and hash the password
     const salt = bcryptjs.genSaltSync();

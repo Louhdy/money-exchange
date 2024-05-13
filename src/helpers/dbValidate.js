@@ -1,10 +1,11 @@
-const { User } = require("../models");
+const { UserModule } = require("../models");
 
 const emailValidator = async (email = "") => {
-  const registeredEmail = await User.findOne({ email });
+  const registeredEmail = await UserModule.findOne({ email });
   if (registeredEmail) {
-    throw new Error(`The email: ${email}, is already registered`);
+    return Promise.reject(`The email: ${email}, is already registered`);
   }
+  return true;
 };
 
 const exchangeValidator = async (tipo_de_cambio) => {

@@ -1,7 +1,7 @@
 const { response, request } = require("express");
 const jwt = require("jsonwebtoken");
 
-const Usuario = require("../models/user");
+const { UserModule } = require("../models");
 const { app } = require("../config/config");
 
 const validateJWT = async (req = request, res = response, next) => {
@@ -19,7 +19,7 @@ const validateJWT = async (req = request, res = response, next) => {
   try {
     const { uid } = jwt.verify(token, app.jwt);
 
-    const user = await Usuario.findById(uid);
+    const user = await UserModule.findById(uid);
 
     if (!user) {
       return res.status(401).json({

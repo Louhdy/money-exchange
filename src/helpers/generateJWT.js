@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { jwtSecret } = require("../config/config");
+const { app } = require("../config/config");
 
 const generateJWT = (uid = "") => {
   return new Promise((resolve, reject) => {
@@ -7,7 +7,7 @@ const generateJWT = (uid = "") => {
 
     jwt.sign(
       payload,
-      jwtSecret,
+      app.jwt,
       { expiresIn: "2h" },
       (err, token) => {
         if (err) {
