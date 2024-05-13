@@ -7,6 +7,49 @@ const { exchangeValidator, amountValidator } = require("../helpers");
 
 const router = Router();
 
+/**
+ * @swagger
+ * /api/exchange:
+ *   post:
+ *     summary: Create new exchange request
+ *     tags: [Exchange]
+ *     parameters:
+ *       - in: header
+ *         name: auth
+ *         description: an authorization header
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             example:
+ *               data: [{}]
+ *     requestBody:
+ *       description: Exchange to be created
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               tipo_de_cambio:
+ *                 type: string
+ *               monto_enviar:
+ *                 type: int
+ *             example:
+ *                tipo_de_cambio: "venta"
+ *                monto_enviar: "60"
+ *       400:
+ *         description: Bad Request
+ *         content:
+ *          application/json:
+ *            example:
+ *             error:
+ *              message: "Bad Request"
+ */
 router.post(
   "/",
   [
@@ -22,8 +65,64 @@ router.post(
   newExchange
 );
 
+/**
+ * @swagger
+ * /api/exchange:
+ *   get:
+ *     summary: Get list of exchange requests
+ *     tags: [Exchange]
+ *     parameters:
+ *       - in: header
+ *         name: auth
+ *         description: an authorization header
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             example:
+ *               data: [{}]
+ *       400:
+ *         description: Bad Request
+ *         content:
+ *          application/json:
+ *            example:
+ *             error:
+ *              message: "Bad Request"
+ */
 router.get("/", [validateJWT, validateFields], listExchange);
 
+/**
+ * @swagger
+ * /api/exchange/:id
+ *   get:
+ *     summary: Get detail of an exchange request
+ *     tags: [Exchange]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: The ID of the exchange.
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             example:
+ *               data: [{}]
+ *       400:
+ *         description: Bad Request
+ *         content:
+ *          application/json:
+ *            example:
+ *             error:
+ *              message: "Bad Request"
+ */
 router.get(
   "/:id",
   [

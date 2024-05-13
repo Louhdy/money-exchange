@@ -12,7 +12,7 @@ const router = Router();
  * /api/users:
  *   post:
  *     summary: Create new user
- *     tags: [Login]
+ *     tags: [User]
  *     responses:
  *       200:
  *         description: Successful response
