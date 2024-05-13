@@ -7,6 +7,15 @@ const swaggerDefinition = {
     version: '1.0.0',
     description: 'Money Exchange API',
   },
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+    },
+  },
 };
 
 const options = {

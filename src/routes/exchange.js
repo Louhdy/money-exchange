@@ -13,13 +13,8 @@ const router = Router();
  *   post:
  *     summary: Create new exchange request
  *     tags: [Exchange]
- *     parameters:
- *       - in: header
- *         name: auth
- *         description: an authorization header
- *         required: true
- *         schema:
- *           type: string
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: Successful response
@@ -71,13 +66,8 @@ router.post(
  *   get:
  *     summary: Get list of exchange requests
  *     tags: [Exchange]
- *     parameters:
- *       - in: header
- *         name: auth
- *         description: an authorization header
- *         required: true
- *         schema:
- *           type: string
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: Successful response
@@ -97,17 +87,19 @@ router.get("/", [validateJWT, validateFields], listExchange);
 
 /**
  * @swagger
- * /api/exchange/:id
+ * /api/exchange/{id}
  *   get:
  *     summary: Get detail of an exchange request
  *     tags: [Exchange]
  *     parameters:
  *       - in: path
  *         name: id
- *         description: The ID of the exchange.
+ *         description: ID of the exchange request
  *         required: true
  *         schema:
  *           type: string
+ *     security:
+ *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: Successful response
@@ -134,6 +126,44 @@ router.get(
   getDetailExchange
 );
 
+/**
+ * @swagger
+ * /api/exchange/{id}:
+ *   delete:
+ *     summary: Delete an exchange request
+ *     tags: [Exchange]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         description: ID of the exchange request
+ *         required: true
+ *         schema:
+ *           type: string
+ *     security:
+ *       - bearerAuth: []  # Requiere un token de autorización
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             example:
+ *               success: true
+ *               message: "Exchange request deleted successfully"
+ *       400:
+ *         description: Bad Request
+ *         content:
+ *           application/json:
+ *             example:
+ *               error:
+ *                 message: "Bad Request"
+ *       404:
+ *         description: Exchange request not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               error:
+ *                 message: "Exchange request not found"
+ */
 router.delete(
   "/:id",
   [
