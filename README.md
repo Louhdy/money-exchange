@@ -25,6 +25,15 @@ Docker and Docker Compose installed on your system.
 The application was implemented using Swagger for the API documentation. 
 - You can check it at `http://localhost:4000/api-docs`.
 
+After using the login route, add the provided token in the response to allow requests that require authentication.
+
+![image](https://github.com/Louhdy/money-exchange/assets/62039139/5c9b9169-3a55-40ca-ae53-b5357b251b89)
+
+![image](https://github.com/Louhdy/money-exchange/assets/62039139/4b8381f6-6824-4869-aef7-ac464fc166f5)
+
+
+#### Login
+
 - **URL Login**: http://localhost:4000/api/auth/login
 - **POST**
 ```
