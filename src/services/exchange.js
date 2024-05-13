@@ -1,4 +1,4 @@
-const { Exchange } = require("../models");
+const { ExchangeModule } = require("../models");
 const { getRates } = require("../api/api");
 
 class ExchangeService {
@@ -19,7 +19,7 @@ class ExchangeService {
         ? monto_enviar * tasa_de_cambio.purchase_price
         : monto_enviar / tasa_de_cambio.sale_price;
 
-    return await Exchange.create({
+    return await ExchangeModule.create({
       tipo_de_cambio,
       tasa_de_cambio,
       monto_enviar,
@@ -29,11 +29,11 @@ class ExchangeService {
   }
 
   async find(userId) {
-    return await Exchange.find({ id_usuario: userId });
+    return ExchangeModule.find({id_usuario: userId});
   }
 
   async findOne(exchangeId, userId) {
-    const data = await Exchange.findOne({
+    const data = await ExchangeModule.findOne({
       _id: exchangeId,
       id_usuario: userId,
     });
@@ -46,7 +46,7 @@ class ExchangeService {
   }
 
   async delete(exchangeId, userId) {
-    const data = await Exchange.findOneAndDelete({
+    const data = await ExchangeModule.findOneAndDelete({
       _id: exchangeId,
       id_usuario: userId,
     });
